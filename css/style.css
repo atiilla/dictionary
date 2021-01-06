@@ -1,10 +1,13 @@
-audio{
-    height: 10%;
+audio {
+  height: 10%;
 }
 
-#play-pause-button{
-    font-size: 17px;
-    cursor: pointer;
-    color:blue;
-    
-  }
+#play-pause-button {
+  font-size: 17px;
+  cursor: pointer;
+  color: #00ff08
+}
+
+.bg-dark {
+  background-color: #2b2d2e!important;
+}

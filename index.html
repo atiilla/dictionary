@@ -37,16 +37,19 @@
                 </div>
             </div>
             
-            <div class="jumbotronx bg-white p-0">
-                <div class="row bg-warning">
+            <div class="jumbotronx bg-dark p-0">
+                <div class="row bg-dark p-4">
                     <div class="col-sm-10 offset-sm-1 ui-box">
-                        <h3 class="word-text">${obj.word}</h3>
-                        <span class="pronunciation-text d-block mb-1" style="color: #808080;">${obj.phonetics[0].text}</span>
+                        <h3 class="word-text text-white d-inline">${obj.word}</h3>
+                        <span class="pronunciation-text mb-1 ml-2" style="color: #93eab2;">${obj.phonetics[0].text}</span>
                         
                         <a id="play-pause-button" class="fa fa-play"></a>
                         <div id="definitions-container">
                             <div class="row" style="border-top: solid 1px #e6e6e6; padding: 10px 0">
-                                <div class="col-sm-9 my-auto definition"><i>noun</i><br>
+                                <div class="col-sm-1 ">
+                                    <p class="lead text-white border text-center border-secondary">#1</p>
+                                </div>
+                                <div class="col-sm-10 my-auto text-white definition"><i>noun</i><br>
                                 ${obj.meanings[1].definitions[0].definition}
                                 <hr>
                                 Example;<br> 
