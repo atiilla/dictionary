@@ -21,15 +21,14 @@ searchBtn.addEventListener('click', (e) => {
             wordText.innerHTML = obj.word
             pronunciation.innerHTML = obj.phonetics[0].text
             console.log(res)
-            let definitionsall =[]
-            obj.meanings.forEach(e=>{
-           //     let def = e.definitions
-         //       console.log(e.definitions)
+            let definitionsall = []
+            obj.meanings.forEach(e => {
+
                 definitionsall.push(...e.definitions)
             })
             console.log(definitionsall)
-           // console.log(definitionsall)
-           definitionsall.forEach((def, index) => {
+
+            definitionsall.forEach((def, index) => {
                 if (def.synonyms != undefined) {
                     defindex.innerHTML += `
                 
