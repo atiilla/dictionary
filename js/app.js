@@ -20,8 +20,16 @@ searchBtn.addEventListener('click', (e) => {
             currentobj = obj
             wordText.innerHTML = obj.word
             pronunciation.innerHTML = obj.phonetics[0].text
-
-            obj.meanings[1].definitions.forEach((def, index) => {
+            console.log(res)
+            let definitionsall =[]
+            obj.meanings.forEach(e=>{
+           //     let def = e.definitions
+         //       console.log(e.definitions)
+                definitionsall.push(...e.definitions)
+            })
+            console.log(definitionsall)
+           // console.log(definitionsall)
+           definitionsall.forEach((def, index) => {
                 if (def.synonyms != undefined) {
                     defindex.innerHTML += `
                 
