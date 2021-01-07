@@ -1,13 +1,10 @@
 const searchInput = document.querySelector('#search')
 const searchBtn = document.querySelector('.btn-default')
 const api = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
-const jumbo = document.querySelector('.jumbotronx')
 let currentobj = {}
 const wordText = document.querySelector('.word-text')
 const pronunciation = document.querySelector('.pronunciation-text')
-const definition = document.querySelector('.definition')
 const play = document.querySelector('#play-pause-button')
-const examples = document.querySelector('.examples')
 const defindex = document.querySelector('#definitions-container')
 
 async function getWord(word) {
@@ -20,18 +17,11 @@ searchBtn.addEventListener('click', (e) => {
     getWord(searchInput.value)
         .then(res => {
             let obj = res[0]
-            // console.log(JSON.stringify(obj))
             currentobj = obj
             wordText.innerHTML = obj.word
             pronunciation.innerHTML = obj.phonetics[0].text
-            // obj.meanings[1].forEach(def=>{
-            //     defs.innerHTML+=`
-            //     <p>${def}</p>
-            //     `
-            // })
-            obj.meanings[1].definitions.forEach((def, index) => {
-                //  console.log(def.synonyms.toString())
 
+            obj.meanings[1].definitions.forEach((def, index) => {
                 if (def.synonyms != undefined) {
                     defindex.innerHTML += `
                 
