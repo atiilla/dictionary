@@ -42,7 +42,7 @@ searchBtn.addEventListener('click', (e) => {
                         </div>
                         
                         <div class="examples">
-                        <p class="text-warning d-inline">Example</p>: ${def.example}
+                        <p class="text-warning d-inline">Example</p>: ${(def.example!=undefined)?def.example:'There is no example!'}
                         </div>
 
                         <div class="synonyms">
@@ -66,7 +66,7 @@ searchBtn.addEventListener('click', (e) => {
                         </div>
                         
                         <div class="examples">
-                        <p class="text-warning d-inline">Example</p>: ${def.example}
+                        <p class="text-warning d-inline">Example</p>: ${(def.example!=undefined)?def.example:'There is no example!'}
                         </div>
 
                         <br></div>
