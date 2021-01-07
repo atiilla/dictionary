@@ -7,78 +7,97 @@ const wordText = document.querySelector('.word-text')
 const pronunciation = document.querySelector('.pronunciation-text')
 const definition = document.querySelector('.definition')
 const play = document.querySelector('#play-pause-button')
+const examples = document.querySelector('.examples')
+const defindex = document.querySelector('#definitions-container')
+
 async function getWord(word) {
     let response = await fetch(`${api}/${word}`)
     let data = await response.json();
     return data;
 }
 
-
-
-
-
-
-searchBtn.addEventListener('click',(e)=>{
+searchBtn.addEventListener('click', (e) => {
     getWord(searchInput.value)
-    .then(res => {
-        let obj = res[0]
-      //  console.log(obj)
-        currentobj=obj
-   
-        // <audio controls>
-        //               <source src="${obj.phonetics[0].audio}" type="audio/mpeg"></source>  
-        //                 Your browser does not support the audio element.
-        //                 </audio>
-        wordText.innerHTML=obj.word
-        pronunciation.innerHTML= obj.phonetics[0].text
-        definition.innerHTML=`
-        <i>noun</i><br>
-                                ${obj.meanings[1].definitions[0].definition}
-                                <hr>
-                                Example;<br> 
-                                ${obj.meanings[1].definitions[0].example}
-                                <br>
-        `
-    //     jumbo.innerHTML = `
-    // <div class="row bg-warning">
-    //                 <div class="col-sm-10 offset-sm-1 ui-box">
-    //                     <h3 class="word-text">${obj.word}</h3>
-    //                     <span class="pronunciation-text d-block mb-1" style="color: #808080;">${obj.phonetics[0].text}</span>
+        .then(res => {
+            let obj = res[0]
+            // console.log(JSON.stringify(obj))
+            currentobj = obj
+            wordText.innerHTML = obj.word
+            pronunciation.innerHTML = obj.phonetics[0].text
+            // obj.meanings[1].forEach(def=>{
+            //     defs.innerHTML+=`
+            //     <p>${def}</p>
+            //     `
+            // })
+            obj.meanings[1].definitions.forEach((def, index) => {
+                //  console.log(def.synonyms.toString())
+
+                if (def.synonyms != undefined) {
+                    defindex.innerHTML += `
+                
+                    <div class="row" style="border-top: solid 1px #e6e6e6; padding: 10px 0">
+                    <div class="col-sm-1 ">
+                        <p class="lead text-white border text-center border-secondary defindex">#${index}</p>
+                    </div>
+                    <div class="col-sm-10 my-auto text-white definition">
+                        <div class="definitions">
+                          <p class="text-warning d-inline">Definition</p>: ${def.definition}
+                        </div>
                         
-    //                     <a id="play-pause-button" class="fa fa-play"></a>
-    //                     <div id="definitions-container">
-    //                         <div class="row" style="border-top: solid 1px #e6e6e6; padding: 10px 0">
-    //                             <div class="col-sm-9 my-auto"><i>noun</i><br>
-    //                             ${obj.meanings[1].definitions[0].definition}
-    //                             <hr>
-    //                             Example;<br> 
-    //                             ${obj.meanings[1].definitions[0].example}
-    //                             <br></div>
-                                
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    // `
-    })
+                        <div class="examples">
+                        <p class="text-warning d-inline">Example</p>: ${def.example}
+                        </div>
+
+                        <div class="synonyms">
+                        <p class="text-warning d-inline">Synonyms</p>: ${def.synonyms.toString()}
+                        </div>
+                        <br></div>
+    
+                </div>
+                    `
+                } else {
+
+                    defindex.innerHTML += `
+                
+                    <div class="row" style="border-top: solid 1px #e6e6e6; padding: 10px 0">
+                    <div class="col-sm-1 ">
+                        <p class="lead text-white border text-center border-secondary defindex">#${index}</p>
+                    </div>
+                    <div class="col-sm-10 my-auto text-white definition">
+                        <div class="definitions">
+                          <p class="text-warning d-inline">Definition</p>: ${def.definition}
+                        </div>
+                        
+                        <div class="examples">
+                        <p class="text-warning d-inline">Example</p>: ${def.example}
+                        </div>
+
+                        <br></div>
+    
+                </div>
+                    `
+                }
+
+            })
+        })
 })
 
 
-play.addEventListener('click',(e)=>{
+play.addEventListener('click', (e) => {
     var audio = new Audio(currentobj.phonetics[0].audio);
     console.log(currentobj)
     let toggle = (e.target.className === "fa fa-play");
     console.log(toggle)
-    if(toggle==true){
-        e.target.className="fa fa-pause"
+    if (toggle == true) {
+        e.target.className = "fa fa-pause"
         audio.play();
-    }else{
-        e.target.className="fa fa-play"
+    } else {
+        e.target.className = "fa fa-play"
         audio.pause();
     }
 
-    audio.onended = function(){
-        play.className="fa fa-play"
+    audio.onended = function () {
+        play.className = "fa fa-play"
     }
 
 })
