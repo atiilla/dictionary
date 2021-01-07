@@ -27,7 +27,7 @@ searchBtn.addEventListener('click', (e) => {
                 definitionsall.push(...e.definitions)
             })
             console.log(definitionsall)
-
+            defindex.innerHTML=""
             definitionsall.forEach((def, index) => {
                 if (def.synonyms != undefined) {
                     defindex.innerHTML += `
