@@ -34,19 +34,19 @@ searchBtn.addEventListener('click', (e) => {
                 
                     <div class="row" style="border-top: solid 1px #e6e6e6; padding: 10px 0">
                     <div class="col-sm-1 ">
-                        <p class="lead text-white border text-center border-secondary defindex">#${index}</p>
+                        <p class="text-white bg-primary border text-center border-secondary defindex">#${index}</p>
                     </div>
                     <div class="col-sm-10 my-auto text-white definition">
-                        <div class="definitions">
-                          <p class="text-warning d-inline">Definition</p>: ${def.definition}
+                        <div class="definitions mb-2 text-dark">
+                          <p class="text-white d-inline bg-dark p-1">Definition:</p> <p class="values d-inline">${def.definition}</p>
                         </div>
                         
-                        <div class="examples">
-                        <p class="text-warning d-inline">Example</p>: ${(def.example!=undefined)?def.example:'There is no example!'}
+                        <div class="examples mb-2 text-dark">
+                        <p class="text-white d-inline bg-dark p-1">Example:</p> <p class="values d-inline">${(def.example!=undefined)?def.example:'There is no example!'}</p>
                         </div>
 
-                        <div class="synonyms">
-                        <p class="text-warning d-inline">Synonyms</p>: ${def.synonyms.toString()}
+                        <div class="synonyms text-dark">
+                        <p class="text-white d-inline bg-dark p-1">Synonyms:</p> <p class="values d-inline">${def.synonyms.toString()}</p>
                         </div>
                         <br></div>
     
@@ -58,15 +58,15 @@ searchBtn.addEventListener('click', (e) => {
                 
                     <div class="row" style="border-top: solid 1px #e6e6e6; padding: 10px 0">
                     <div class="col-sm-1 ">
-                        <p class="lead text-white border text-center border-secondary defindex">#${index}</p>
+                        <p class="text-white bg-primary border text-center border-secondary defindex">#${index}</p>
                     </div>
                     <div class="col-sm-10 my-auto text-white definition">
-                        <div class="definitions">
-                          <p class="text-warning d-inline">Definition</p>: ${def.definition}
+                        <div class="definitions mb-2 text-dark ">
+                          <p class="text-white d-inline bg-dark p-1">Definition:</p> <p class="values d-inline">${def.definition}</p>
                         </div>
                         
-                        <div class="examples">
-                        <p class="text-warning d-inline">Example</p>: ${(def.example!=undefined)?def.example:'There is no example!'}
+                        <div class="examples text-dark">
+                        <p class="text-white d-inline bg-dark p-1">Example:</p> <p class="values d-inline">${(def.example!=undefined)?def.example:'There is no example!'}</p>
                         </div>
 
                         <br></div>

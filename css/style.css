@@ -11,3 +11,10 @@ audio {
 .bg-dark {
   background-color: #2b2d2e!important;
 }
+p.text-white.d-inline.bg-dark.p-1 {
+  font-size: 0.7rem;
+}
+
+.values {
+  font-size: 0.8rem;
+}
