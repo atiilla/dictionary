@@ -1,6 +1,7 @@
 const searchInput = document.querySelector('#search')
 const searchBtn = document.querySelector('.btn-default')
-const api = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
+const lang = document.querySelector('select[name="lang"]')
+const api = 'https://api.dictionaryapi.dev/api/v2/entries'
 let currentobj = {}
 const wordText = document.querySelector('.word-text')
 const pronunciation = document.querySelector('.pronunciation-text')
@@ -8,7 +9,8 @@ const play = document.querySelector('#play-pause-button')
 const defindex = document.querySelector('#definitions-container')
 
 async function getWord(word) {
-    let response = await fetch(`${api}/${word}`)
+    let response = await fetch(`${api}/${lang.value}/${word}`)
+    
     let data = await response.json();
     return data;
 }
