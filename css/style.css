@@ -36,3 +36,8 @@ p.text-white.d-inline.bg-dark.p-1 {
 .tx3 {
   font: 500 22px 'Ubuntu', sans-serif;
 }
+
+
+.mainColor {
+  background-color: #f7f7f7!important;
+}
