@@ -10,7 +10,6 @@ const defindex = document.querySelector('#definitions-container')
 
 async function getWord(word) {
     let response = await fetch(`${api}/${lang.value}/${word}`)
-    
     let data = await response.json();
     return data;
 }
