@@ -20,7 +20,7 @@ p.text-white.d-inline.bg-dark.p-1 {
 }
 
 .tx4 {
-  width: 50%;
+  width: auto;
   height: calc(2.25rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
@@ -35,5 +35,4 @@ p.text-white.d-inline.bg-dark.p-1 {
 
 .tx3 {
   font: 500 22px 'Ubuntu', sans-serif;
-  margin-right: 20px;
 }
